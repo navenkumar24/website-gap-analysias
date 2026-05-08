@@ -399,8 +399,7 @@ elif selected_site == "❤️ Non-Profit":
         st.plotly_chart(apply_theme(fig4, 350), use_container_width=True)
 
     st.markdown('<div class="section-title">📋 Campaign Detail Table</div>', unsafe_allow_html=True)
-    st.dataframe(np_campaigns.style.background_gradient(subset=["Progress (%)"], cmap="Blues"),
-                 use_container_width=True, hide_index=True)
+    st.dataframe(np_campaigns, use_container_width=True, hide_index=True)
 
     st.markdown('<div class="section-title">📊 Goal Completion Rate (Month-wise)</div>', unsafe_allow_html=True)
     fig5 = go.Figure(go.Scatter(x=month_labels, y=np_donors["Goal Completion (%)"],
@@ -477,8 +476,7 @@ elif selected_site == "🤖 Artificial Intelligence":
 
     st.markdown('<div class="section-title">📋 Model Details Table</div>', unsafe_allow_html=True)
     display_cols = ["Model", "Category", "Accuracy (%)", "Latency (ms)", "API Calls (K)", "User Rating", "Open Source"]
-    st.dataframe(ai_models[display_cols].style.background_gradient(subset=["Accuracy (%)"], cmap="Blues"),
-                 use_container_width=True, hide_index=True)
+    st.dataframe(ai_models[display_cols], use_container_width=True, hide_index=True)
 
     st.markdown('<div class="section-title">📊 API Calls Growth by Month</div>', unsafe_allow_html=True)
     fig5 = go.Figure(go.Bar(x=month_labels, y=ai_monthly["API Calls (M)"],
@@ -549,8 +547,7 @@ elif selected_site == "📰 Magazine":
         st.plotly_chart(apply_theme(fig4, 380), use_container_width=True)
 
     st.markdown('<div class="section-title">📋 Category Detail Table</div>', unsafe_allow_html=True)
-    st.dataframe(mag_categories.style.background_gradient(subset=["Conversion (%)"], cmap="Greens"),
-                 use_container_width=True, hide_index=True)
+    st.dataframe(mag_categories, use_container_width=True, hide_index=True)
 
     st.markdown('<div class="section-title">⏱ Avg Read Time & Social Engagement</div>', unsafe_allow_html=True)
     fig5 = make_subplots(specs=[[{"secondary_y": True}]])
